@@ -1,6 +1,7 @@
 import { Server } from "http"
 import app from "./app.js"
-import { config } from "./config/index.js"
+import { envVars } from "./config/index.js";
+
 
 
 async function startServer() {
@@ -8,8 +9,8 @@ async function startServer() {
 
     try {
         
-        server = app.listen(config.port, () => {
-           console.log(`🚀 Server is running on http://localhost:${config.port}`);
+        server = app.listen(envVars.port, () => {
+           console.log(`🚀 Server is running on http://localhost:${envVars.port}`);
         });
 
         // Function to gracefully shut down the server

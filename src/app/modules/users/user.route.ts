@@ -1,8 +1,16 @@
-import { Router } from "express";
+import { Router, type NextFunction, type Request, type Response } from "express";
 import { userController } from "./user.controller";
+import { fileUploader } from "../../helper/fileUploader";
+import { userValidation } from "./user.validation";
 
 const router = Router();
 
-router.post('/register-patient', userController.createPatient  )
+router.post('/register-patient',
+    fileUploader.upload.single("file"),
+    ( req: Request, res: Response, next: NextFunction ) => {
+        req.body = userValidation.createPatientValidationSchema.parse(JSON.parse(req.body.data))
+        return userController.createPatient(req, res, next)
+    }
+);
 
 export const userRouter = router;

@@ -11,5 +11,7 @@ export const envVars = {
         cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
         api_key: process.env.CLOUDINARY_API_KEY,
         api_secret: process.env.CLOUDINARY_API_SECRET
-    }
+    },
+    BCRYPT_SALT_ROUNDS: process.env.BCRYPT_SALT_ROUNDS,
+    
 }

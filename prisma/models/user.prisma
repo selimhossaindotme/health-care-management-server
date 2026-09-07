@@ -70,3 +70,4 @@ model Admin {
 
     @@map("admins")
 }
+
